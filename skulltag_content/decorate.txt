@@ -6,6 +6,7 @@
 #include "actors/skulltagspawners.txt"
 #include "actors/skulltagstatues.txt"
 #include "actors/skulltagweapons.txt"
+#include "actors/skulltagrunes.txt"
 
 
 // [SP] Duel Surge II compatibility
