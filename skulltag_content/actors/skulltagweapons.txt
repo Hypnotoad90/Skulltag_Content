@@ -80,7 +80,7 @@ ACTOR RailGun : DoomWeapon 5012
 		RLGG A 1 A_Raise
 		loop
 	Fire:
-		RLGG E 12 A_FireRailgun
+		RLGG E 12 A_FireRailgun ("RailgunPuff")
 		RLGG F 6 A_CheckRailReload
 		RLGG G 6
 		RLGG H 6
@@ -104,6 +104,24 @@ ACTOR RailGun : DoomWeapon 5012
 
 //=================================================================================================
 //
+// [TP] This allows the railgun to pierce armor
+//
+//=================================================================================================
+ACTOR RailgunPuff : BulletPuff
+{
+	DamageType Railgun
+	+PIERCEARMOR
+	States
+	{
+	Spawn:
+	Melee:
+		TNT1 A 1
+		stop
+	}
+}
+
+//=================================================================================================
+//
 // BFG10K
 //
 //=================================================================================================
@@ -120,6 +138,7 @@ ACTOR BFG10K : DoomWeapon 5013
 	Weapon.AmmoType "Cell"
 	Weapon.Kickback 100
 	Inventory.Pickupmessage "$PICKUP_BFG10K"
+	SelfObituary "$OB_BFG10K_SELF" // [SB]
 	+WEAPON.NOAUTOFIRE
 	+WEAPON.NOLMS
 	States
@@ -199,6 +218,7 @@ ACTOR BFG10kShot
 	SeeSound "weapons/bfg10kx"
 	AttackSound "weapons/bfg10kx"
 	Obituary "$OB_BFG10K"
+	SelfObituary "$OB_BFG10K_SELF" // [SB]
 	States
 	{
 	Spawn:
@@ -229,6 +249,7 @@ ACTOR GrenadeLauncher : DoomWeapon 5011
 	Weapon.AmmoType "RocketAmmo"
 	Weapon.Kickback 100
 	Inventory.PickupMessage "$PICKUP_GRENADELAUNCHER"
+	SelfObituary "$OB_GRENADE_SELF" // [SB]
 
 	States
 	{

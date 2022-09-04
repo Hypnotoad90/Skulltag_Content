@@ -6,21 +6,4 @@
 #include "actors/skulltagspawners.txt"
 #include "actors/skulltagstatues.txt"
 #include "actors/skulltagweapons.txt"
-
-
-// [SP] Duel Surge II compatibility
-// [author]: This was put in because invisible bridges don't behave properly at this size.
-actor CargoBridge 1337
-{
-	Radius 64
-	Height 16
-	+NOGRAVITY
-	+SOLID
-	-SHOOTABLE
-	States
-	{
-		Spawn:
-		TNT1 A -1
-		stop
-	}
-}
+#include "actors/skulltagrunes.txt"
